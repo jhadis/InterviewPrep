@@ -51,6 +51,7 @@ public class TreeProblems {
         TreeNode root = null;
         for (Integer i : numbers) {
             root = insertIntoBinarySearchTree(i, root);
+            root = insertIntoBinarySearchTree(i, root);
         }
         return root;
     }
@@ -69,18 +70,62 @@ public class TreeProblems {
     private void insertData(TreeNode node, TreeNode parent) {
         if (Integer.compare(node.value, parent.value) < 0) {
             if (parent.getLeft() == null) {
+                node.setParent(parent);
                 parent.setLeft(node);
             } else {
                 insertData(node, parent.getLeft());
             }
         } else {
             if (parent.getRight() == null) {
+                node.setParent(parent);
                 parent.setRight(node);
             } else {
                 insertData(node, parent.getRight());
             }
         }
     }
+
+    private TreeNode findNodeByData(int data, TreeNode node) {
+        if (node == null)
+            return null;
+
+        findNodeByData(data, node.getLeft());
+        if (node != null && node.value == data) {
+            return node;
+        }
+
+        findNodeByData(data, node.getRight());
+
+        return null;
+    }
+
+//    private boolean deleteData(int data, TreeNode root) {
+//        TreeNode node = findNodeByData(data, root);
+//
+//        if (node != null) {
+//            return deleteData(node);
+//        }
+//
+//        return false;
+//    }
+
+//    private boolean deleteData(TreeNode node) {
+//        if (node != null) {
+//            if (node.getLeft() == null && node.getRight() == null) {
+//                if (node.getParent().getRight().equals(node)) {
+//                    node.getParent().setRight(null);
+//                    return true;
+//                }
+//                else {
+//                    }
+//                }
+//            }
+//
+//        }
+//
+//        return false;
+//
+//    }
 
     /**
      * Given a sorted array of integers, create a minimal height binary search tree.

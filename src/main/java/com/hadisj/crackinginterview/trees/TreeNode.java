@@ -6,6 +6,7 @@ package com.hadisj.crackinginterview.trees;
 public class TreeNode {
     private TreeNode left;
     private TreeNode right;
+    private TreeNode parent;
     int value;
 
     public TreeNode(int value) {
@@ -32,5 +33,13 @@ public class TreeNode {
 
     public void setRight(TreeNode right) {
         this.right = right;
+    }
+
+    public TreeNode getParent() {
+        return parent;
+    }
+
+    public void setParent(TreeNode parent) {
+        this.parent = parent;
     }
 }

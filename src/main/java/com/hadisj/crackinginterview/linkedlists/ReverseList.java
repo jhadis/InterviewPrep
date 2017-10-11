@@ -84,11 +84,12 @@ public class ReverseList {
 
     public void printList(ListNode listNode) {
         System.out.println("Linked list");
-        while (listNode.next != null) {
+        while (listNode != null && listNode.next != null) {
             System.out.print(listNode.value + " => ");
             listNode = listNode.next;
         }
-        System.out.println(listNode.value);
+        if (listNode != null)
+            System.out.println(listNode.value);
     }
 
     private class ListNode {
@@ -103,8 +104,8 @@ public class ReverseList {
         ListNode reversedHead = prog.reverseList(head);
         prog.printList(reversedHead);
 
-        reversedHead = prog.iterativeReverseList(reversedHead);
         System.out.println("iterative");
+        reversedHead = prog.iterativeReverseList(reversedHead);
         prog.printList(reversedHead);
 
 //        reversedHead = prog.reverseListWithStack(reversedHead);
