@@ -50,9 +50,11 @@ public class TrieUsageApache {
         List<String> it = app.findWordsByWildcard("it");
         System.out.println(it);
 
+        //Won't return "for it was" since "it was" isn't a prefix of "for it was"
         List<String> itWas = app.findWordsByWildcard("it was");
         System.out.println(itWas);
 
+        //Won't return anything because Trie can only search when you provide prefix of string
         List<String> itTo = app.findWordsByWildcard("it to");
         System.out.println(itTo);
     }
